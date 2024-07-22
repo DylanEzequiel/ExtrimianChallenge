@@ -1,0 +1,39 @@
+[{
+	"anonymous": false,
+	"inputs": [
+		{
+			"indexed": true,
+			"internalType": "string",
+			"name": "newData",
+			"type": "string"
+		}
+	],
+	"name": "DataStored",
+	"type": "event"
+},
+{
+	"inputs": [],
+	"name": "retrieveData",
+	"outputs": [
+		{
+			"internalType": "string",
+			"name": "",
+			"type": "string"
+		}
+	],
+	"stateMutability": "view",
+	"type": "function"
+},
+{
+	"inputs": [
+		{
+			"internalType": "string",
+			"name": "_data",
+			"type": "string"
+		}
+	],
+	"name": "storeData",
+	"outputs": [],
+	"stateMutability": "nonpayable",
+	"type": "function"
+}]
