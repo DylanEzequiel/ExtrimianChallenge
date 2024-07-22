@@ -1,13 +1,14 @@
 import Web3, { AbiItem } from "web3"
 import abiCrud from "../abi/abi.json"
-const Contract_Address = "0x2df05c8AD56Dea969D3FC66A68b92670612C0190"
+import { toast } from "react-toastify"
 
+
+const Contract_Address = "0x2df05c8AD56Dea969D3FC66A68b92670612C0190"
 const Node_Url="https://eth-sepolia.g.alchemy.com/v2/vqWzHOM8jPizUIoCxPgs_3e5HGp-Sgnu"
 
-const abi:AbiItem[]=abiCrud
-// const Contract = require("web3-eth-contract")
 
-// Contract.setProvider(Node_Url)
+//Abi necesario para poder ser utilizado en el proyecto
+const abi:AbiItem[]=abiCrud
 
 // Interfaz global para el objeto Window que incluirá Ethereum y Web3
 declare global {
@@ -16,7 +17,8 @@ declare global {
     }
   }
   
-  // Función para inicializar Web3
+// Función para inicializar Web3
+
   async function initializeWeb3() {
     let web3: Web3;
   
@@ -34,7 +36,7 @@ declare global {
       web3 = new Web3(window.web3.currentProvider);
       console.log("Web3 injected");
     } else {
-      // No se encontró un proveedor web3
+      // No se encontró un proveedor web3 y se selecciona el nodo de alchemy
       web3 = new Web3(new Web3.providers.HttpProvider(Node_Url));
         console.log("Connected to Alchemy");
     }
@@ -43,6 +45,7 @@ declare global {
   }
   
 
+// funcion encargada de conectarse al contrato con el abi y la direccion obtenida desde remix
 export  async function connectToContract() {
     const web3 = await initializeWeb3();
     // Crear una instancia del contrato
@@ -50,7 +53,6 @@ export  async function connectToContract() {
     // Obtener la cuenta del usuario
     const accounts = await web3.eth.getAccounts();
     const account = accounts[0]; // Asumimos que hay al menos una cuenta disponible
-
 
    
 
