@@ -7,7 +7,6 @@ import { IoSend } from "react-icons/io5"
 import { toast } from "react-toastify"
 import useStore, { SwitchLoading } from "./storeZustand/Store"
 import { ColorRing } from "react-loader-spinner"
-import { GiCrossedChains } from "react-icons/gi"
 import { SiBnbchain } from "react-icons/si"
 
 

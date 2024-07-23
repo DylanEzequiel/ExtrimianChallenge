@@ -38,7 +38,9 @@ declare global {
     } else {
       // No se encontró un proveedor web3 y se selecciona el nodo de alchemy
       web3 = new Web3(new Web3.providers.HttpProvider(Node_Url));
+      web3.eth.getBlockNumber().then(console.log).catch(console.error);
         console.log("Connected to Alchemy");
+      //! Al conectarme con el nodo de alchemy me da un error debido a que el from del contrano no esta especificado
     }
   
     return web3;
