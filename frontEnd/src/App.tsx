@@ -7,6 +7,8 @@ import { IoSend } from "react-icons/io5"
 import { toast } from "react-toastify"
 import useStore, { SwitchLoading } from "./storeZustand/Store"
 import { ColorRing } from "react-loader-spinner"
+import { GiCrossedChains } from "react-icons/gi"
+import { SiBnbchain } from "react-icons/si"
 
 
 
@@ -46,7 +48,6 @@ function App() {
 
   //Escucha a todos los cambios que hayan en la wallet para asi renderizarlos si se retorna un dato, si en main.tsx esta descomentado el react.strictmode se ejecutara dos veces y obtendra la informacion repetidamente
   useEffect(()=>{
-    console.log("evento", wallet.contract)
     const avivo = async () => {
       try {
         listenForDataStored(wallet.contract)
@@ -63,14 +64,20 @@ function App() {
       <div className='m-auto w-3/5'>
         <div className="relative">
           {/* <h3 className="fixed drop-shadow-[0_1.2px_1.2px_rgba(202, font-bold text-5xl text-center text-white 0.8)] 68, 68,">Guarda Datos En Blockchain</h3> */}
-          <h1 className='font-semibold text-4xl text-center text-white underline'>Guarda datos en Blockchain
+          <h1 className='font-bold font-mono text-5xl text-center text-purple-700 underline'>
+            <span className="text-white"> Guarda datos en 
+              <b className="p-2">
+            <SiBnbchain  className="inline" />
+                Blockchain 
+              </b>
+            </span>
           </h1>
         </div>
-        <div className="flex flex-row flex-wrap justify-center bg-gray-800 shadow-slate-400 shadow-sm m-auto my-20 p-2 rounded-md min-w-80 max-w-3xl h-20 text-center">
+        <div className="flex flex-row flex-wrap justify-center bg-gray-700 shadow-slate-400 shadow-sm m-auto my-20 p-2 rounded-md min-w-80 max-w-3xl h-20 text-center">
           <input onChange={handleChange} type="text" placeholder={`Tu dato`} 
-          className="shadow-lime-300 shadow-sm m-auto p-1 placeholder:p-1 rounded-sm w-10/12 h-12 placeholder:font-semibold placeholder:text-lg outline-1 focus:outline-black"/>
+          className="border-gray-300 focus:border-purple-400 m-auto p-1 placeholder:p-1 border-b-4 focus:outline-none border-solid rounded-sm w-10/12 h-12 placeholder:font-semibold placeholder:text-lg"/>
 
-          <button onClick={handleClick} className="flex justify-center items-center bg-white shadow-lime-300 shadow-sm m-auto p-2 rounded-md transform transition-transform duration-200 hover:scale-105 w-1/12 h-12 max-h-max active:outline-gray-400 text-lg sm:text-xl active:outline active:outline-2"
+          <button onClick={handleClick} className="flex justify-center items-center bg-white m-auto p-2 rounded-md transform transition-transform duration-200 hover:scale-105 w-1/12 h-12 max-h-max active:outline-gray-400 text-lg sm:text-xl active:outline active:outline-2"
           disabled={Loading}>
             {Loading?
             <ColorRing
