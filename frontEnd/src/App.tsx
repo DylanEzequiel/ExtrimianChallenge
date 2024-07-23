@@ -44,8 +44,9 @@ function App() {
 
   },[])
 
-  //Escucha a todos los cambios que hayan en la wallet para asi renderizarlos si se retorna un dato
+  //Escucha a todos los cambios que hayan en la wallet para asi renderizarlos si se retorna un dato, si en main.tsx esta descomentado el react.strictmode se ejecutara dos veces y obtendra la informacion repetidamente
   useEffect(()=>{
+    console.log("evento", wallet.contract)
     const avivo = async () => {
       try {
         listenForDataStored(wallet.contract)
@@ -54,7 +55,7 @@ function App() {
     }
     }
     avivo() 
-  },[wallet])
+  },[wallet.contract])
   
 
   return (
@@ -65,11 +66,11 @@ function App() {
           <h1 className='font-semibold text-4xl text-center text-white underline'>Guarda datos en Blockchain
           </h1>
         </div>
-        <div className="flex flex-row flex-wrap justify-center bg-gray-600 my-20 p-2 rounded-md h-14 text-center">
-          <input onChange={handleChange} type="text" placeholder="Tu dato" 
-          className="shadow-lime-300 shadow-sm p-1 placeholder:p-1 rounded-sm w-3/4 h-8 outline-1 focus:outline-black"/>
+        <div className="flex flex-row flex-wrap justify-center bg-gray-800 shadow-slate-400 shadow-sm m-auto my-20 p-2 rounded-md min-w-80 max-w-3xl h-20 text-center">
+          <input onChange={handleChange} type="text" placeholder={`Tu dato`} 
+          className="shadow-lime-300 shadow-sm m-auto p-1 placeholder:p-1 rounded-sm w-10/12 h-12 placeholder:font-semibold placeholder:text-lg outline-1 focus:outline-black"/>
 
-          <button onClick={handleClick} className="flex justify-center items-center bg-white shadow-lime-300 shadow-sm mx-4 p-2 rounded-sm h-8 max-h-max active:outline-slate-600 text-lg outline outline-transparent"
+          <button onClick={handleClick} className="flex justify-center items-center bg-white shadow-lime-300 shadow-sm m-auto p-2 rounded-md transform transition-transform duration-200 hover:scale-105 w-1/12 h-12 max-h-max active:outline-gray-400 text-lg sm:text-xl active:outline active:outline-2"
           disabled={Loading}>
             {Loading?
             <ColorRing
@@ -78,7 +79,7 @@ function App() {
             width="40"
             ariaLabel="color-ring-loading"
             wrapperClass="color-ring-wrapper"
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+            colors={['#108de0', '#0b93c9', '#2802ff', '#570bbb', '#3a025f']}
             />
             :
             <IoSend size={20}/>
