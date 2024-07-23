@@ -54,7 +54,7 @@ Integración con MetaMask para manejar transacciones en la blockchain.
 Para interacción con contratos inteligentes en la blockchain.
 #### JavaScript/TypeScript: 
 Desarrollo de lógica de aplicación y scripts.
-#### diagrams.net: 
+#### draw.io: 
 Creación de diagramas y visualización de la arquitectura.
 #### Alchemy:
 Proveedor de Nodos.
