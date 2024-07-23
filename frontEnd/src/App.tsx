@@ -23,6 +23,7 @@ function App() {
   function handleClick (){
     SwitchLoading()
     storeData({data:info, contract:wallet.contract,account:wallet.account })
+    setInfo("")
     toast.info("Procesando el pago",{delay:120})
   }
 
@@ -59,22 +60,31 @@ function App() {
   
 
   return (
+    
     <article className="flex flex-col justify-center h-full">
+
+      
+
+
       <div className='m-auto w-3/5'>
-        <div className="relative">
-          {/* <h3 className="fixed drop-shadow-[0_1.2px_1.2px_rgba(202, font-bold text-5xl text-center text-white 0.8)] 68, 68,">Guarda Datos En Blockchain</h3> */}
-          <h1 className='font-bold font-mono text-5xl text-center text-purple-700 underline'>
-            <span className="text-white"> Guarda datos en 
-              <b className="p-2">
-            <SiBnbchain  className="inline" />
-                Blockchain 
-              </b>
+        <div className="relative text-center">
+          <h1 className='font-bold font-mono text-5xl text-center text-purple-700 underline' >
+            <span className="text-white"> Guarda datos en  
+              <span className="text-white underline">
+                <b className="p-2 font-bold font-serif text-violet-700 tracking-wider">
+              <SiBnbchain size={70}  className="inline text-white" />
+                  Blockchain 
+                </b>
+
+              </span>
             </span>
           </h1>
         </div>
         <div className="flex flex-row flex-wrap justify-center bg-gray-700 shadow-slate-400 shadow-sm m-auto my-20 p-2 rounded-md min-w-80 max-w-3xl h-20 text-center">
           <input onChange={handleChange} type="text" placeholder={`Tu dato`} 
-          className="border-gray-300 focus:border-purple-400 m-auto p-1 placeholder:p-1 border-b-4 focus:outline-none border-solid rounded-sm w-10/12 h-12 placeholder:font-semibold placeholder:text-lg"/>
+          className="border-gray-300 focus:border-purple-400 m-auto p-1 placeholder:p-1 border-b-4 focus:outline-none border-solid rounded-sm w-10/12 h-12 placeholder:font-semibold placeholder:text-lg"
+          value={info}
+          />
 
           <button onClick={handleClick} className="flex justify-center items-center bg-white m-auto p-2 rounded-md transform transition-transform duration-200 hover:scale-105 w-1/12 h-12 max-h-max active:outline-gray-400 text-lg sm:text-xl active:outline active:outline-2"
           disabled={Loading}>
