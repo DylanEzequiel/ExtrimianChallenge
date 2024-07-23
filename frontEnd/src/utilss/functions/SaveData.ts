@@ -9,5 +9,7 @@ export  async function storeData({data,contract,account}: {data:string,contract:
       return toast.success("Se aprobo la transacción!")
     } catch (error) {
       console.error("Error storing data", error);
+      SwitchLoading()
+      
     }
 }

@@ -60,13 +60,16 @@ function App() {
   return (
     <article className="flex flex-col justify-center h-full">
       <div className='m-auto w-3/5'>
-        <h1 className='font-semibold text-4xl text-center text-white underline'>Guarda datos en Blockchain
-        </h1>
-        <div className="flex flex-row flex-wrap justify-center my-20 text-center">
+        <div className="relative">
+          {/* <h3 className="fixed drop-shadow-[0_1.2px_1.2px_rgba(202, font-bold text-5xl text-center text-white 0.8)] 68, 68,">Guarda Datos En Blockchain</h3> */}
+          <h1 className='font-semibold text-4xl text-center text-white underline'>Guarda datos en Blockchain
+          </h1>
+        </div>
+        <div className="flex flex-row flex-wrap justify-center bg-gray-600 my-20 p-2 rounded-md h-14 text-center">
           <input onChange={handleChange} type="text" placeholder="Tu dato" 
-          className="shadow-lime-300 shadow-sm p-1 placeholder:p-1 rounded-sm w-3/4 h-8 outline-1 focus:outline-slate-600"/>
+          className="shadow-lime-300 shadow-sm p-1 placeholder:p-1 rounded-sm w-3/4 h-8 outline-1 focus:outline-black"/>
 
-          <button onClick={handleClick} className="flex justify-center items-center bg-white shadow-lime-300 shadow-sm mx-4 p-2 rounded-sm h-8 max-h-max active:outline-slate-600 text-lg outline"
+          <button onClick={handleClick} className="flex justify-center items-center bg-white shadow-lime-300 shadow-sm mx-4 p-2 rounded-sm h-8 max-h-max active:outline-slate-600 text-lg outline outline-transparent"
           disabled={Loading}>
             {Loading?
             <ColorRing
